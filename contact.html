@@ -49,9 +49,9 @@
                         </div>
 
                         <div class="form-group px-4 py-1">
-                            <label for="exampleInputEmail1">Email address</label>
+                            <label for="emailId">Email address</label>
                             <span class="text-light">*</span>
-                            <input type="email" onkeyup="checkform()" class="form-control" id="exampleInputEmail1"
+                            <input type="email" onkeyup="checkform()" class="form-control" id="emailId"
                                 aria-describedby="emailHelp" placeholder="Enter email" />
                             <small id="emailHelp" class="form-text text-light">We'll never share your email with anyone
                                 else.</small>
@@ -65,14 +65,14 @@
                         </div>
 
                         <div class="form-group px-4 py-1">
-                            <label for="exampleFormControlTextarea1">Message</label>
+                            <label for="message">Message</label>
                             <span class="text-light">*</span>
-                            <textarea onkeyup="checkform()" class="form-control" id="exampleFormControlTextarea1"
-                                rows="3" placeholder="Enter your message here, if any..."></textarea>
+                            <textarea onkeyup="checkform()" class="form-control" id="message" rows="3"
+                                placeholder="Enter your message here..."></textarea>
                         </div>
 
                         <div class="text-center px-4 py-3">
-                            <button type="submit" style="background-color: #7aea7a;"
+                            <button type="button" style="background-color: #7aea7a;"
                                 class="btn btn-primary text-success" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop" class="btn btn-light" id="submitbutton"
                                 disabled="disabled">
@@ -90,15 +90,14 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5 text-dark" id="staticBackdropLabel">Message</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body text-dark">
+                                    <div class="modal-body text-center text-success">
                                         Form Submitted successfully!!!
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary"
+                                        <button type="button" class="btn btn-success"
                                             data-bs-dismiss="modal">Okay</button>
                                     </div>
                                 </div>
@@ -156,11 +155,10 @@
 
 <script>
     function checkform() {
-        var f = document.forms["contactForm"].elements;
-        var cansubmit = false;
-        for (var i = 0; i < f.length; i++) {
-            console.log(f[i].value.length)
-            if (f[0].value.length && f[1].value.length && f[2].value.length && f[3].value.length) {
+        var formElements = document.forms["contactForm"].elements;
+
+        for (var i = 0; i < formElements.length; i++) {
+            if (formElements[0].value.length && formElements[1].value.length && formElements[2].value.length && formElements[3].value.length) {
                 document.getElementById('submitbutton').disabled = false;
                 break;
             }
@@ -170,7 +168,6 @@
             }
 
         }
-        console.log(document.getElementById('submitbutton').disabled)
     }
 </script>
 
