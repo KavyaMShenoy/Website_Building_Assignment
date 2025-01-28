@@ -75,7 +75,7 @@
                             <button type="button" style="background-color: #7aea7a;"
                                 class="btn btn-primary text-success" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop" class="btn btn-light" id="submitbutton"
-                                disabled="disabled">
+                                disabled="disabled" onclick="submitForm()">
                                 Submit
                             </button>
                             <br>
@@ -166,8 +166,11 @@
                 document.getElementById('submitbutton').disabled = 'disabled';
                 break;
             }
-
         }
+    }
+
+    function submitForm() {
+        document.getElementById("contactForm").reset();
     }
 </script>
 
